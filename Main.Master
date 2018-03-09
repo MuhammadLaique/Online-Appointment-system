@@ -1,0 +1,139 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="SignalRChat.Main" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Punjab Patient Portal</title>    
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/modern-business.css" rel="stylesheet" />
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />      
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html"><span>
+                            <img alt="Logo" src="Images/logo.png" height="50" /></span>Punjab Patient Portal</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="Home.aspx">Home</a></li>
+                            <li><a href="AboutUs.aspx">About Us</a></li>
+                            <li><a href="Services.aspx">Our Services</a></li>
+                            <li><a href="Contact.aspx">Contact Us</a></li>                          
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>Join Us<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="SignIn.aspx"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="DoctorSignUpRequest.aspx">Sign Up as Doctor</a></li>
+                                    <li><a href="PatientSignup.aspx">Sign Up as User</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </nav>
+        </div>
+
+        <!-- Page Content -->
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Welcome to Punjab Patient Portal</h1>
+                </div>
+                <!--- Carousel -->
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                    </ol>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="Images/slider/1.jpg" alt="OUR DOCTORS" />
+                            <div class="carousel-caption">
+                                <h3>HELLO!! WE ARE Punjab PATIENT PORTAL</h3>
+
+                                <p><a class="btn btn-lg btn-primary" href="DoctorSignupRequestPage.aspx" role="button">Join Us Today</a></p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="Images/slider/2.jpg" height="12" alt="OUR DOCTORS" />
+                            <div class="carousel-caption">
+                                <h3>WE BELIVE IN TREATMENT THROUGH TECHNOLOGY AND PROPER CARE</h3>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="Images/slider/3.jpg" alt="OUR DOCTORS" />
+                            <div class="carousel-caption">
+                                <h3>Connect To Punjab Patient Portal</h3>
+
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="Images/slider/4.jpg" alt="OUR DOCTORS" />
+                            <div class="carousel-caption">
+                                <h3>AND CHECK OUR HIGHLY QUALIFIED DOCTORS</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+                <!--- Carousel -->
+
+            </div>
+            <br />
+            <br />
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+        </div>
+    </form>
+    <!--- Footer  -->
+    <hr />
+    <footer>
+        <div class="container">
+            <p class="pull-right"><a href="#">Back to top</a></p>
+            <p>&copy; 2017 punjabpatientportal.com &middot; <a href="Home.aspx">Home</a> &middot; <a href="#">About Us</a> &middot; <a href="Contact.aspx">Contact Us</a> &middot; <a href="Home.aspx">Services</a></p>
+        </div>
+    </footer>
+    <!--- Footer -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    
+</body>
+</html>

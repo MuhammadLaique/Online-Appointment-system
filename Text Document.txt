@@ -1,0 +1,301 @@
+<%--<div class="media">
+                <a class="pull-left" href="#">
+                <img class="media-object" src="http://placehold.it/64x64" alt="">
+                </a>
+                <div class="media-body">
+                <div class="row">
+                <div class="well">
+                <h4>Answer:</h4>
+                <div role="form">
+                <div class="form-group">
+                <asp:TextBox ID="taanswer" runat="server" Class="form-control" placeholder="Problem Type"></asp:TextBox>
+  
+                </div>
+                <asp:Button ID="btnanswer" runat="server" Class="btn btn-success" Text="Submit" CommandArgument='<%# Eval("QuestionId") %>'
+                                CommandName="answer"/>
+                </div>
+                </div>
+                 </div>
+                 </div>
+                </div>--%>
+        <%--</div>
+    </div>--%>
+
+
+
+
+<%--function UploadFile(fileUpload) {
+            if (fileUpload.value != '') {
+                document.getElementById("<%=ButtonUploadImage.ClientID %>").click();
+            }
+        }--%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+===========================
+ <script type="text/javascript">
+        <%--function ddlspecializationchange() {
+
+                document.getElementById("<%=btnSpecializationHandler.ClientID %>").click();
+
+        }
+
+        function ddlSearchForChange() {
+
+                 $('#<%= ddlsearchfor.ClientID %>').on('change', function () {
+                if (this.value == 'Hospital')
+                    //.....................^.......
+                {
+                    $("#Div1").hide();
+                }
+                else {
+                    $("#Div1").show();
+                }
+            });
+
+        }
+
+        $(document).ready(function () {
+            $('#<%= ddlcity.ClientID %>').on('change', function () {
+                if (this.value == 'Other')
+                    //.....................^.......
+                {
+                    $("#Optional2").show();
+                    $("#Optional1").hide();
+                }
+                else {
+                    $("#Optional1").show();
+                    $("#Optional2").hide();
+                }
+            });
+        });--%>
+
+       <%-- $(document).ready(function () {
+            $('#<%= ddlsearchfor.ClientID %>').on('change', function () {
+                if (this.value == 'Hospital')
+                    //.....................^.......
+                {
+                    $("#Div1").hide();
+                }
+                else {
+                    $("#Div1").show();
+                }
+            });
+             $('#<%= ddlspecialization.ClientID %>').on('change', function () {
+                if (this.value == 'All')
+                    //.....................^.......
+                {
+                    $("#DivFilter").hide();
+                }
+                else {
+                    $("#DivFilter").show();
+                }
+            });
+
+
+
+
+
+
+
+
+            $('#<%= ddlFilterBy.ClientID %>').on('change', function () {
+                if (this.value == 'Diseases')                   
+                {
+                    $("#Div2").show();
+                    $("#Div3").hide();
+                }
+                else if(this.value == 'Services')
+                {
+                    $("#Div2").hide();
+                    $("#Div3").show();
+                }
+                else if (this.value == 'None')
+                {
+                    $("#Div2").hide();
+                    $("#Div3").hide();
+                }
+            });
+        });--%>
+    </script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <!--- Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">HealthForum
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li class="active">HealthForum</li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+             <div class="row">
+                      <div class="well">
+                        <h4>Apply Search Filters:</h4>
+                            <div class="form-inline" role="form">
+                                <div class="form-group">
+                                <label>City:</label>
+                                <%--<asp:DropDownList ID="ddlcity" runat="server" CssClass="list-unstyled" Font-Size="Large"></asp:DropDownList>--%>
+                                <select id="ddlcity" runat="server" class="form-control"></select>
+                                </div>
+                                <div class="form-group">
+                                <label>Search For:</label>
+                                <asp:DropDownList ID="ddlSearchFor" runat="server" AutoPostBack="true" CssClass="list-unstyled" Font-Size="Large" OnSelectedIndexChanged="ddlSearchFor_SelectedIndexChanged">
+                                    <asp:ListItem Text="Hospital" Value="Hospital"></asp:ListItem>
+                                    <asp:ListItem Text="Doctor" Value="Doctor"></asp:ListItem>
+                                    </asp:DropDownList>
+                                <%--<select runat="server" class="form-control" id="ddlsearchfor" onchange="ddlSearchForChange()">
+                                <option value="Hospital">Hospital</option>
+                                <option value="Doctor">Doctor</option>    
+                                </select>--%>
+                                </div>
+                                <div id="Div1" <%--style="display:none"--%>>
+                                    <div class="form-group">
+                                    <label>Gender:</label>
+                                    <select runat="server" class="form-control" id="ddlgender">                              
+                                    <option value="Both">Both </option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    </select>                                 
+                                    </div>
+                                    <div class="form-group">
+                                    <label>Check Up Fee Range:</label>
+                                    <select runat="server" class="form-control" id="ddlFeeMin">                              
+                                    <option value="--Minimum--">--Minimum--</option>
+                                    <option value="Don,t Filter">Don,t Filter</option>
+                                    <option value="0">Rs.0</option>
+                                    <option value="100">Rs.100</option>
+                                    <option value="500">Rs.500</option>
+                                    <option value="1000">Rs.1000</option>
+                                    <option value="1500">Rs.1500</option>
+                                    <option value="2000">Rs.200</option>
+                                    <option value="5000">Rs.5000</option>                                   
+                                    </select>
+                                    <select runat="server" class="form-control" id="ddlFeeMax">                              
+                                    <option value="--Maximum--">--Maximum--</option>
+                                    <option value="Don,t Filter">Don,t Filter</option>
+                                    <option value="100">Rs.100</option>
+                                    <option value="500">Rs.500</option>
+                                    <option value="1000">Rs.1000</option>
+                                    <option value="1500">Rs.1500</option>
+                                    <option value="2000">Rs.200</option>
+                                    <option value="5000">Rs.5000</option>
+                                    <option value="10000">Rs.10000</option>                                   
+                                    </select>                                                   
+                                    </div>
+                                    <div class="form-group">
+                                    <label>Specialization:</label>
+                                    <asp:DropDownList ID="ddlspecialization" runat="server" AutoPostBack="true" CssClass="list-unstyled" Font-Size="Large" OnSelectedIndexChanged="ddlspecialization_SelectedIndexChanged"></asp:DropDownList>
+                                    <%--<select id="ddlspecialization" runat="server" class="form-control" onchange="ddlspecializationchange()"></select> --%>                                 
+                                    <asp:Button ID="btnSpecializationHandler" runat="server" CssClass="hidden" OnClick="btnSpecializationHandler_Click"/>
+                                    </div>
+                                    <asp:DropDownList ID="ddlFilterBy" runat="server" AutoPostBack="true" CssClass="list-unstyled" Font-Size="Large" OnSelectedIndexChanged="ddlFilterBy_SelectedIndexChanged">
+                                    <asp:ListItem Text="None" Value="None"></asp:ListItem>
+                                    <asp:ListItem Text="Services" Value="Services"></asp:ListItem>
+                                        <asp:ListItem Text="Diseases" Value="Diseases"></asp:ListItem>
+                                    </asp:DropDownList>
+                                    <%--<div id="divFilter" class="form-group" style="display:none">
+                                        <label>Filter By:</label>
+                                        <select runat="server" class="form-control" id="ddlFilterBy">                              
+                                        <option value="None">None</option>
+                                        <option value="Services">Services</option>
+                                        <option value="Diseases">Diseases</option>
+                                        </select>
+                                    </div>--%>
+                                    <div id="Div2" <%--style="display:none"--%>>
+                                         <label>Diseases:</label>
+                                        <select runat="server" class="form-control" id="ddlDiseases">                                                                     
+                                        </select>                                
+                                    </div>
+                                    <div id="Div3" <%--style="display:none"--%>>
+                                         <label>Services:</label>
+                                        <select runat="server" class="form-control" id="ddlServices">                                                                     
+                                        </select>                                
+                                    </div>
+                                </div>
+                         </div>
+                        <asp:Button ID="SearchButton" runat="server" CssClass="btn btn-success" OnClick="SearchButton_Click" Text="Find" />
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+============================================================
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<%--<script
+        src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+    </script>--%>
+ <meta name="description" content=""/>
+    <meta name="author" content=""/>
+==================================================================
+<div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                   
+                        <small></small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#">Home</a>
+                        </li>
+                        <li class="active"></li>
+                    </ol>
+                </div>
+            </div>
+       </div>
+
+====================================================================================================================
+<li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Our Services<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="Search.aspx">Find Doctor</a></li>
+                                    <li><a href="Search.aspx">Find Hospital</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="ChatPage.aspx">Chat Room</a></li>
+                                    <li><a href="#">Mail Room</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Health Blogs</a></li>
+                                    <li><a href="#">Ask Online Questions</a></li>
+                                    <li><a href="#">All Users</a></li>
+                                </ul>
+                            </li>
+
+
+================================================================
+
+				Session["Exception"] = ex;
+                Response.Redirect("~/404.aspx");
+
+
+
+
+

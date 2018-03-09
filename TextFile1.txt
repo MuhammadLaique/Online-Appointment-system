@@ -1,0 +1,162 @@
+﻿select query:
+
+string CS = ConfigurationManager.ConnectionStrings["ConnectToPatientPortal"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(CS))
+        {
+            SqlDataAdapter da = new SqlDataAdapter("Select * from DoctorProfile", con);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            return ds;
+        }
+
+//string CS = ConfigurationManager.ConnectionStrings["ConnectToPatientPortal"].ConnectionString;
+        //using (SqlConnection con = new SqlConnection(CS))
+        //{
+        //    SqlCommand cmd = new SqlCommand("Select DoctorId,Name,Specialization from DoctorProfile", con);
+        //    con.Open();
+        //    SqlDataReader r2 = cmd.ExecuteReader();
+        //    List<DoctorProfile> doctor = new List<DoctorProfile>();
+
+        //    while (r2.Read())
+        //    {
+        //        if (r2.GetString(r2.GetOrdinal("Specialization")) == SelectProblem.Value)
+        //        {
+        //            doctor.Add(new DoctorProfile()
+        //            {
+        //                DoctorID = r2.GetInt32(r2.GetOrdinal("DoctorID")),
+        //                Name = r2.GetString(r2.GetOrdinal("Name")),
+        //                Specialization = r2.GetString(r2.GetOrdinal("Specialization"))
+        //            });
+        //        }
+
+        //    }
+
+ string CS = ConfigurationManager.ConnectionStrings["ConnectToPatientPortal"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(CS))
+        {
+            SqlDataAdapter da = new SqlDataAdapter("Select Address,WorkHours,PhoneP,PhoneS from DoctorProfile where DoctorId='" + DoctorId + "'", con);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            dt = ds.Tables[0];
+            address=dt.Rows[0][0].ToString();
+            workhours = dt.Rows[0][1].ToString();
+
+        }
+
+===================================================================================================================================
+Insert query:
+if (TextBoxName.Text != "" && TextBoxPhone.Text != "" && TextBoxEmail.Text != "")
+        {
+                String CS = ConfigurationManager.ConnectionStrings["ConnStringDb1"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(CS))
+                {
+                    SqlCommand cmd = new SqlCommand("insert into DoctorRegistrationRequestsTable (Name,Email,Phone,Message) values('" + TextBoxName.Text + "','" + TextBoxEmail.Text + "','" + TextBoxPhone.Text + "','" + TextBoxMessage.Text + "')", con);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    lblMsg.Text = "Registration Successfull";
+                    lblMsg.ForeColor = Color.Green;
+                // Response.Redirect("~/Signin.aspx");
+                GmailHandlerClass obj = new GmailHandlerClass();
+                
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('" + Response + "');</script>");
+            }
+            
+            
+        }
+        else
+        {
+            lblMsg.ForeColor = Color.Red;
+            lblMsg.Text = "All Fields Are Mandatory";
+
+        }
+===================================================================================================================================
+Messageboxtypical:
+Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('File is too big.')", true);
+===================================================================================================================================
+C# in asp
+<p>      <%=Session["USERNAME"]%>;</p> 
+===================================================================================================================================
+button and label
+<asp:Button ID="btSignup" runat="server" Class="btn btn-success" Text="Sign Up" OnClick="btSignup_Click" />
+                <asp:Label ID="lblMsg" runat="server"></asp:Label>
+===================================================================================================================================
+select list
+
+<div class="form-group">
+            <label for="SelectCityList">Select your city:</label>
+            <select runat="server" class="form-control" id="SelectCityList" name="selectcity">
+                <option value=""> </option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+        </div>
+===================================================================================================================================
+show/hide division JAVA Script:
+
+ <script type="text/javascript">
+        function ShowHideDiv(chkPassport) {
+            var dvPassport = document.getElementById("FeesubmissionDivision");
+            dvPassport.style.display = chkPassport.checked ? "block" : "none";
+        }
+    </script>
+===================================================================================================================================
+Button with script and glhphicon
+
+<button id="logout" type="button" class="btn navbar-btn btn-primary" runat="server" onclick="LogoutButtonClick()">
+    <span class="glyphicon glyphicon-log-out"></span>SignOut
+</button>
+ <asp:Button ID="logoutBTNghost" runat="server" Style="display:none" OnClick="BtAdminLogout_Click" />
+ <script>
+function LogoutButtonClick() {
+    document.getElementById("logoutBTNghost").click();
+}
+</script>
+===================================================================================================================================
+padding elements
+
+ <div class="row">
+    <div class="col-lg-4 col-lg-offset-3">
+===================================================================================================================================
+Header
+
+<div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Welcome to Punjab Patient Portal</h1>
+                </div>
+===================================================================================================================================
+required="required"
+===================================================================================================================================
+TextMode=""
+===================================================================================================================================
+<footer>
+       <div class="container">
+        <div class="footer-pos">
+             <hr />
+            <p class="pull-right"><a href="#">Back to top</a></p>
+            <p>&nbsp&nbsp&nbsp&nbsp&copy; 2017 punjabpatientportal.com &middot; <a href="AboutUs.aspx">About Us</a> &middot; <a href="ContactUs.aspx">Contact Us</a> &middot; <a href="Services.aspx">Our Services</a></p>
+        </div>
+           </div>
+    </footer>
+===================================================================================================================================
+Cinfirmation modal
+<div id="CinfirmationModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title text-center">Cinfirm</h4>
+    </div>
+    <div id="ModalText" class="modal-body">
+    <p>Do You Really want to?</p>        
+    </div>
+    <div class="modal-footer">      
+    <button type="button" class="btn btn-success" onclick="LogoutButtonClick()">Yes</button>
+    <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+    </div>     
+    </div>
+    </div>
+    </div>
+
+============================================================================================================
